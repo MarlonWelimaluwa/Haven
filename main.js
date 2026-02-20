@@ -1,8 +1,3 @@
-/* =============================================
-   HAVEN — Burnout Recovery Coach
-   main.js
-   ============================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
 
   /* =====================
@@ -87,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
      7. EMAILJS CONTACT FORM
   ===================== */
 
-  // ⚠️ Replace with your EmailJS credentials:
   const EMAILJS_PUBLIC_KEY  = 'ccMNxZpGD7S987cw5';
   const EMAILJS_SERVICE_ID  = 'service_ztvi0kv';
   const EMAILJS_TEMPLATE_ID = 'template_56frc2a';
@@ -122,6 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data);
       form.style.display = 'none';
       formSuccess.classList.add('show');
+
+      setTimeout(() => {
+        formSuccess.classList.remove('show');
+        form.style.display = 'block';
+        form.reset();
+      }, 10000);
+
     } catch (err) {
       console.error('EmailJS Error:', err);
       if (formError) {
